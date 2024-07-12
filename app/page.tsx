@@ -3,11 +3,11 @@
 import { useChat } from 'ai/react';
 
 const HomePage = () => {
-  const { messages, input, handleInputChange, handleSubmit } = useChat();
+  const { messages, input, handleInputChange, handleSubmit, data } = useChat();
   return (
-    <div className='flex flex-col w-full max-w-md py-24 mx-auto stretch'>
+    <div className='flex flex-col w-full max-w-md py-24 mx-auto stretch text-white'>
       {messages.map((m) => (
-        <div key={m.id} className='whitespace-pre-wrap'>
+        <div key={m.id} className='whitespace-pre-wrap '>
           {m.role === 'user' ? 'User: ' : 'AI: '}
           {m.content}
         </div>
@@ -15,7 +15,7 @@ const HomePage = () => {
 
       <form onSubmit={handleSubmit}>
         <input
-          className='fixed bottom-0 w-full max-w-md p-2 mb-8 border border-gray-300 rounded shadow-xl'
+          className='fixed bottom-0 w-full max-w-md p-2 mb-8 border border-gray-300 rounded shadow-xl text-black'
           value={input}
           placeholder='Say something...'
           onChange={handleInputChange}
